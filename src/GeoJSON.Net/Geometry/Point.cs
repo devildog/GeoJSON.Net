@@ -12,9 +12,7 @@ namespace GeoJSON.Net.Geometry
     using System;
     using System.Collections.Generic;
 
-    using GeoJSON.Net.Converters;
-
-    using Newtonsoft.Json;
+ 
 
     /// <summary>
     /// In geography, a point refers to a Position on a map, expressed in latitude and longitude.
@@ -41,8 +39,7 @@ namespace GeoJSON.Net.Geometry
         /// Gets the Coordinate(s).
         /// </summary>
         /// <value>The Coordinates.</value>
-        [JsonProperty(PropertyName = "coordinates", Required = Required.Always)]
-        [JsonConverter(typeof(PositionConverter))]
+ 
         public List<IPosition> Coordinates { get; private set; }
     }
 }

@@ -12,20 +12,22 @@ namespace GeoJSON.Net.Geometry
     using System;
     using System.Collections.Generic;
 
-    using GeoJSON.Net.Converters;
-
-    using Newtonsoft.Json;
+ 
 
     /// <summary>
     ///   Defines the <see cref="http://geojson.org/geojson-spec.html#linestring">LineString</see> type.
     /// </summary>
-    [JsonObject(MemberSerialization.OptIn)]
+ 
     public class LineString : GeoJSONObject, IGeometryObject
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="LineString"/> class.
         /// </summary>
         /// <param name="coordinates">The coordinates.</param>
+        public LineString()
+        {
+            this.Type = GeoJSONObjectType.LineString;
+        }
         public LineString(List<IPosition> coordinates)
         {
             if (coordinates == null)
@@ -46,9 +48,8 @@ namespace GeoJSON.Net.Geometry
         /// Gets the Positions.
         /// </summary>
         /// <value>The Positions.</value>
-        [JsonProperty(PropertyName = "coordinates", Required = Required.Always)]
-        [JsonConverter(typeof(PositionConverter))]
-        public List<IPosition> Coordinates { get; private set; }
+ 
+        public List<IPosition> Coordinates { get;  set; }
 
         /// <summary>
         /// Determines whether this LineString is a <see cref="http://geojson.org/geojson-spec.html#linestring">LinearRing</see>.

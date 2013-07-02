@@ -9,12 +9,12 @@
 
 namespace GeoJSON.Net
 {
-    using Newtonsoft.Json;
+  
 
     /// <summary>
     /// Base class for all IGeometryObject implementing types
     /// </summary>
-    [JsonObject(MemberSerialization.OptIn)]
+ 
     public abstract class GeoJSONObject : IGeoJSONObject
     {
         /// <summary>
@@ -23,7 +23,7 @@ namespace GeoJSON.Net
         /// <value>
         /// The type of the object.
         /// </value>
-        [JsonProperty(PropertyName = "type", Required = Required.Always)]
+ 
         public GeoJSONObjectType Type { get; internal set; }
 
         /// <summary>
@@ -32,7 +32,7 @@ namespace GeoJSON.Net
         /// <value>
         /// The Coordinate Reference System Objects.
         /// </value>
-        [JsonProperty(PropertyName = "crs", Required = Required.AllowNull)]
+ 
         public CoordinateReferenceSystem.ICRSObject CRS { get; set; }
 
         /// <summary>
@@ -45,7 +45,7 @@ namespace GeoJSON.Net
         /// In addition, the coordinate reference system for the bbox is assumed to match the coordinate reference
         /// system of the GeoJSON object of which it is a member.
         /// </value>
-        [JsonProperty(PropertyName = "bbox", Required = Required.AllowNull)]
+ 
         public double[] BoundingBoxes { get; set; }
     }
 }

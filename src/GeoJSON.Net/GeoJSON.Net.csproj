@@ -8,8 +8,8 @@
     <ProjectGuid>{7C0D45ED-681E-4DEC-9910-BAE1211E4889}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>GeoJSON.Net</RootNamespace>
-    <AssemblyName>GeoJSON.Net</AssemblyName>
+    <RootNamespace>MGeoJSON.Net</RootNamespace>
+    <AssemblyName>MGeoJSON.Net</AssemblyName>
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
@@ -21,7 +21,7 @@
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
-    <DocumentationFile>bin\Debug\GeoJSON.Net.XML</DocumentationFile>
+    <DocumentationFile>bin\Debug\MGeoJSON.Net.xml</DocumentationFile>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
@@ -30,21 +30,14 @@
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
-    <DocumentationFile>bin\Release\GeoJSON.Net.XML</DocumentationFile>
+    <DocumentationFile>bin\Release\MGeoJSON.Net.xml</DocumentationFile>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="Newtonsoft.Json, Version=4.0.5.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\packages\Newtonsoft.Json.4.0.5\lib\net40\Newtonsoft.Json.dll</HintPath>
-    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="Microsoft.CSharp" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Converters\GeometryConverter.cs" />
-    <Compile Include="Converters\PositionConverter.cs" />
-    <Compile Include="Converters\PolygonConverter.cs" />
     <Compile Include="CoordinateReferenceSystem\LinkedCRS.cs" />
     <Compile Include="CoordinateReferenceSystem\CRSBase.cs" />
     <Compile Include="CoordinateReferenceSystem\CRSType.cs" />
@@ -75,8 +68,8 @@
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
-    <PostBuildEvent>copy $(SolutionDir)$(ProjectName)\$(OutDir)$(TargetName).xml $(SolutionDir)..\lib
-copy $(SolutionDir)$(ProjectName)\$(OutDir)$(TargetName).dll $(SolutionDir)..\lib</PostBuildEvent>
+    <PostBuildEvent>
+    </PostBuildEvent>
   </PropertyGroup>
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

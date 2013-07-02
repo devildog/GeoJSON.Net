@@ -10,8 +10,7 @@
 namespace GeoJSON.Net.Feature
 {
     using System.Collections.Generic;
-
-    using Newtonsoft.Json;
+ 
 
     /// <summary>
     /// Defines the FeatureCollection type.
@@ -22,6 +21,12 @@ namespace GeoJSON.Net.Feature
         /// Initializes a new instance of the <see cref="FeatureCollection"/> class.
         /// </summary>
         /// <param name="features">The features.</param>
+        /// 
+        public FeatureCollection()
+        {
+            this.Type = GeoJSONObjectType.FeatureCollection;
+            this.Features = new List<Feature>();
+        }
         public FeatureCollection(List<Feature> features)
         {
             this.Features = features;
@@ -33,7 +38,7 @@ namespace GeoJSON.Net.Feature
         /// Gets the features.
         /// </summary>
         /// <value>The features.</value>
-        [JsonProperty(PropertyName = "features", Required = Required.Always)]
-        public List<Feature> Features { get; private set; }
+ 
+        public List<Feature> Features { get;  set; }
     }
 }

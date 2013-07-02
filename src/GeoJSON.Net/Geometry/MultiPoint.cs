@@ -10,7 +10,7 @@
 namespace GeoJSON.Net.Geometry
 {
     using System.Collections.Generic;
-    using Newtonsoft.Json;
+ 
 
     /// <summary>
     /// Contains an array of <see cref="Point"/>s.
@@ -32,7 +32,7 @@ namespace GeoJSON.Net.Geometry
         /// Gets the Coordinates.
         /// </summary>
         /// <value>The Coordinates.</value>
-        [JsonProperty(PropertyName = "coordinates", Required = Required.Always)]
+ 
         public List<Point> Coordinates { get; private set; }
     }
 }
