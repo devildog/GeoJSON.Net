@@ -10,7 +10,10 @@
 namespace GeoJSON.Net.Geometry
 {
     using System.Collections.Generic;
- 
+
+    using GeoJSON.Net.Converters;
+
+    using Newtonsoft.Json;
 
     /// <summary>
     /// Defines the <see cref="http://geojson.org/geojson-spec.html#geometry-collection">GeometryCollection</see> type.
@@ -30,7 +33,8 @@ namespace GeoJSON.Net.Geometry
         /// <summary>
         /// Gets the list of Polygons enclosed in this MultiPolygon.
         /// </summary>
- 
+        [JsonProperty(PropertyName = "geometries", Required = Required.Always)]
+        [JsonConverter(typeof(PositionConverter))]
         public List<IGeometryObject> Geometries { get; private set; }
     }
 }

@@ -10,10 +10,11 @@
 namespace GeoJSON.Net.Feature
 {
     using System.Collections.Generic;
- 
+
+    using GeoJSON.Net.Converters;
     using GeoJSON.Net.Geometry;
 
- 
+    using Newtonsoft.Json;
 
     /// <summary>
     /// A GeoJSON <see cref="http://geojson.org/geojson-spec.html#feature-objects">Feature Object</see>.
@@ -25,11 +26,6 @@ namespace GeoJSON.Net.Feature
         /// </summary>
         /// <param name="geometry">The Geometry Object.</param>
         /// <param name="properties">The properties.</param>
-        /// 
-        public Feature()
-        {
-            this.Type = GeoJSONObjectType.Feature;
-        }
         public Feature(IGeometryObject geometry, Dictionary<string, object> properties = null)
         {
             this.Geometry = geometry;
@@ -42,7 +38,7 @@ namespace GeoJSON.Net.Feature
         /// Gets or sets the id.
         /// </summary>
         /// <value>The handle.</value>
-    
+        [JsonProperty(PropertyName = "id")]
         public string Id { get; set; }
 
         /// <summary>
@@ -51,14 +47,15 @@ namespace GeoJSON.Net.Feature
         /// <value>
         /// The geometry.
         /// </value>
- 
+        [JsonProperty(PropertyName = "geometry", Required = Required.AllowNull)]
+        [JsonConverter(typeof(GeometryConverter))]
         public IGeometryObject Geometry { get; set; }
         
         /// <summary>
         /// Gets the properties.
         /// </summary>
         /// <value>The properties.</value>
- 
-        public Dictionary<string, object> Properties { get; set; }
+        [JsonProperty(PropertyName = "properties", Required = Required.AllowNull)]
+        public Dictionary<string, object> Properties { get; private set; }
     }
 }
